@@ -715,7 +715,7 @@ def analyze_resume():
                 prompt,
                 generation_config=genai.GenerationConfig(
                     temperature=0.05,
-                    max_output_tokens=8000,
+                    max_output_tokens=16000,
                 ),
             )
             text = (response.text or "").strip()
@@ -742,7 +742,7 @@ def analyze_resume():
                 response2 = call_gemini_with_retry(
                     model_analysis,
                     retry_prompt,
-                    generation_config=genai.GenerationConfig(temperature=0.0, max_output_tokens=8000),
+                    generation_config=genai.GenerationConfig(temperature=0.0, max_output_tokens=16000),
                 )
                 data = try_parse_json(response2.text or "")
 
