@@ -650,7 +650,7 @@ def fetch_jobs_from_ethiojobs(keywords, per_page=10):
     try:
         query = " ".join(keywords[:3])
         resp = requests.get(
-            "http://localhost:5001/api/jobs",
+            os.getenv("ETHIOJOBS_API_URL", "https://mouse-anemia-unkind.ngrok-free.dev") + "/api/jobs",
             params={"q": query},
             timeout=5
         )
